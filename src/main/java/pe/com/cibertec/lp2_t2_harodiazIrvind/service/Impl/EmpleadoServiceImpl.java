@@ -22,11 +22,11 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 		return empleadoRepository.findAll();
 	}
 
-	@Override
-	public Optional<Empleado> obtenerEmpleadoPorDni(String dni) {
-		// TODO Auto-generated method stub
-		 return empleadoRepository.findById(dni);
-	}
+    @Override
+    public Optional<Empleado> obtenerEmpleadoPorDni(String dni) {
+    	// TODO Auto-generated method stub
+        return empleadoRepository.findById(dni);
+    }
 
 	@Override
 	public void guardarEmpleado(Empleado empleado) {
@@ -39,6 +39,8 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 		// TODO Auto-generated method stub
 		empleadoRepository.deleteById(dni);
 	}
+
+	
 
     
 }

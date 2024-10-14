@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Empleados</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Lista de Empleados</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Dirección</th>
+                <th>Área</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="empleado : ${empleados}">
+                <td th:text="${empleado.dniEmpleado}">DNI</td>
+                <td th:text="${empleado.nombreEmpleado}">Nombre</td>
+                <td th:text="${empleado.apellidoEmpleado}">Apellido</td>
+                <td th:text="${empleado.correo}">Correo</td>
+                <td th:text="${empleado.direccion}">Dirección</td>
+                <td th:text="${empleado.area.nombreArea}">Área</td>
+                <td>
+                    <a th:href="@{/empleados/editar/{dni}(dni=${empleado.dniEmpleado})}" class="btn btn-primary btn-sm">Editar</a>
+                    <a th:href="@{/empleados/eliminar/{dni}(dni=${empleado.dniEmpleado})}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/empleados/nuevo" class="btn btn-success">Nuevo Empleado</a>
+</div>
+</body>
+</html>

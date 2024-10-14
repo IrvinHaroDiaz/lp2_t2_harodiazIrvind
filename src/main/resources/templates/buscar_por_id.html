@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Buscar Empleado</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Buscar Empleado</h1>
+    <form action="#" th:action="@{/empleados/buscar}" method="get">
+        <div class="form-group">
+            <label>DNI del Empleado</label>
+            <input type="text" name="dni" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    <div th:if="${empleado != null}" class="mt-4">
+        <h2>Detalles del Empleado</h2>
+        <p><strong>DNI:</strong> <span th:text="${empleado.dniEmpleado}"></span></p>
+        <p><strong>Nombre:</strong> <span th:text="${empleado.nombreEmpleado}"></span></p>
+        <p><strong>Apellido:</strong> <span th:text="${empleado.apellidoEmpleado}"></span></p>
+        <p><strong>Correo:</strong> <span th:text="${empleado.correo}"></span></p>
+        <p><strong>Dirección:</strong> <span th:text="${empleado.direccion}"></span></p>
+        <p><strong>Fecha de Nacimiento:</strong> <span th:text="${empleado.fechaNacimiento}"></span></p>
+        <p><strong>Área:</strong> <span th:text="${empleado.area.nombreArea}"></span></p>
+    </div>
+</div>
+</body>
+</html>

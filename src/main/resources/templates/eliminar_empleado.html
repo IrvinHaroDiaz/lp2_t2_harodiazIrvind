@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Eliminar Empleado</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Eliminar Empleado</h1>
+    <div th:if="${empleado != null}">
+        <p>¿Está seguro de que desea eliminar al empleado con el siguiente DNI?</p>
+        <p><strong>DNI:</strong> <span th:text="${empleado.dniEmpleado}"></span></p>
+        <p><strong>Nombre:</strong> <span th:text="${empleado.nombreEmpleado}"></span></p>
+        <p><strong>Apellido:</strong> <span th:text="${empleado.apellidoEmpleado}"></span></p>
+        <form action="#" th:action="@{/empleados/eliminar}" method="post">
+            <input type="hidden" th:value="${empleado.dniEmpleado}" name="dniEmpleado" />
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <a href="/empleados/listar" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+    <div th:if="${empleado == null}">
+        <p>No se encontró el empleado.</p>
+    </div>
+</div>
+</body>
+</html>

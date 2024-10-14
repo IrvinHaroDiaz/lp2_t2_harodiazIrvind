@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Nuevo Empleado</title>
+    <title>Actualizar Empleado</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-    <h1 class="my-4">Nuevo Empleado</h1>
-    <form action="#" th:action="@{/empleados/guardar}" th:object="${empleado}" method="post">
+    <h1 class="my-4">Actualizar Empleado</h1>
+    <form action="#" th:action="@{/empleados/actualizar}" th:object="${empleado}" method="post">
         <div class="form-group">
             <label>DNI</label>
-            <input type="text" th:field="*{dniEmpleado}" class="form-control" required />
+            <input type="text" th:field="*{dniEmpleado}" class="form-control" readonly />
         </div>
         <div class="form-group">
             <label>Nombre</label>
@@ -32,13 +32,13 @@
             <label>Fecha de Nacimiento</label>
             <input type="date" th:field="*{fechaNacimiento}" class="form-control" required />
         </div>
-		<div class="form-group">
-		    <label>Área</label>
-		    <select th:field="*{area}" class="form-control" required>
-		        <option th:each="area : ${areas}" th:value="${area.id}" th:text="${area.nombreArea}"></option>
-		    </select>
-		</div>
-        <button type="submit" class="btn btn-success">Guardar Empleado</button>
+        <div class="form-group">
+            <label>Área</label>
+            <select th:field="*{area}" class="form-control" required>
+                <option th:each="area : ${areas}" th:value="${area.id}" th:text="${area.nombreArea}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Actualizar Empleado</button>
         <a href="/empleados/listar" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
